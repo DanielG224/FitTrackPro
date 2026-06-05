@@ -1,0 +1,35 @@
+@model FitTrackPro.Models.WorkoutPlan
+
+@{
+    ViewData["Title"] = "Usuń plan treningowy";
+}
+
+<div class="container mt-5 text-center">
+    <h1 class="fw-bold text-danger">Usuń plan treningowy</h1>
+    <h3 class="mb-4">Czy na pewno chcesz usunąć ten plan?</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-start">
+            <div class="card shadow p-4">
+                <h4 class="fw-bold mb-3 text-center">Szczegóły planu</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">Nazwa</dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+
+                    <dt class="col-sm-4">Opis</dt>
+                    <dd class="col-sm-8">@Model.Description</dd>
+
+                    <dt class="col-sm-4">Poziom trudności</dt>
+                    <dd class="col-sm-8">@Model.Level</dd>
+                </dl>
+
+                <form asp-action="Delete" class="text-center mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Usuń" class="btn btn-danger me-2" />
+                    <a asp-action="Index" class="btn btn-outline-secondary">Powrót do listy</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

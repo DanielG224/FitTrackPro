@@ -1,0 +1,80 @@
+@model FitTrackPro.Models.Exercise
+
+@{
+    ViewData["Title"] = "Edytuj ćwiczenie";
+}
+
+<div class="container mt-5">
+    <div class="mb-4 text-center">
+        <h1 class="fw-bold">Edytuj ćwiczenie</h1>
+        <p class="text-muted">Zaktualizuj dane ćwiczenia w FitTrackPro.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="form-label fw-semibold">Nazwa ćwiczenia</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Description" class="form-label fw-semibold">Opis</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="MuscleGroup" class="form-label fw-semibold">Partia mięśniowa</label>
+                            <input asp-for="MuscleGroup" class="form-control" />
+                            <span asp-validation-for="MuscleGroup" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Difficulty" class="form-label fw-semibold">Poziom trudności</label>
+                            <select asp-for="Difficulty" class="form-select">
+                                <option value="">Wybierz poziom</option>
+                                <option value="Beginner">Początkujący</option>
+                                <option value="Intermediate">Średniozaawansowany</option>
+                                <option value="Advanced">Zaawansowany</option>
+                            </select>
+                            <span asp-validation-for="Difficulty" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="mb-3 text-center">
+                                <label class="form-label fw-semibold">Aktualne zdjęcie</label>
+                                <div>
+                                    <img src="@Model.ImageUrl" class="img-fluid rounded shadow" style="max-height: 250px;" />
+                                </div>
+                            </div>
+                        }
+
+                        <div class="form-group mb-4">
+                            <label asp-for="ImageFile" class="form-label fw-semibold">Zmień zdjęcie</label>
+                            <input asp-for="ImageFile" type="file" class="form-control" />
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Powrót</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

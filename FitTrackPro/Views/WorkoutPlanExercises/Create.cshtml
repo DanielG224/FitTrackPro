@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Dodaj ćwiczenie do planu";
+}
+
+<div class="container mt-5">
+
+    <h1 class="fw-bold">Dodaj ćwiczenie do planu</h1>
+
+    <form method="post" class="mt-4">
+
+        <div class="mb-3">
+
+            <label class="form-label">Plan treningowy</label>
+
+            <select name="workoutPlanId" class="form-control">
+
+                @foreach (var plan in ViewBag.Plans)
+                {
+                    <option value="@plan.Id">@plan.Name</option>
+                }
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">Ćwiczenie</label>
+
+            <select name="exerciseId" class="form-control">
+
+                @foreach (var ex in ViewBag.Exercises)
+                {
+                    <option value="@ex.Id">@ex.Name</option>
+                }
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">Serie</label>
+            <input type="number" name="sets" class="form-control" />
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">Powtórzenia</label>
+            <input type="number" name="reps" class="form-control" />
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Dodaj
+        </button>
+
+        <a asp-controller="WorkoutPlans"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Powrót
+        </a>
+
+    </form>
+
+</div>

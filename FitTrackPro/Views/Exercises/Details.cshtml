@@ -1,0 +1,87 @@
+@model FitTrackPro.Models.Exercise
+
+@{
+    ViewData["Title"] = "Szczegóły ćwiczenia";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl"
+                         class="card-img-top"
+                         style="max-height: 400px; object-fit: cover;" />
+                }
+
+                <div class="card-body p-4">
+
+                    <h1 class="fw-bold mb-3">
+                        @Model.Name
+                    </h1>
+
+                    <p class="mb-4 fs-5">
+                        @Model.Description
+                    </p>
+
+                    <div class="d-flex gap-3 flex-wrap mb-4">
+
+                        <span class="badge bg-success p-2">
+
+                            Partia mięśniowa:
+                            @Model.MuscleGroup
+
+                        </span>
+
+                        <span class="badge bg-primary p-2">
+
+                            Poziom:
+
+                            @(Model.Difficulty switch
+                            {
+                                "Beginner" => "Początkujący",
+                                "Intermediate" => "Średniozaawansowany",
+                                "Advanced" => "Zaawansowany",
+                                _ => Model.Difficulty
+                            })
+
+                        </span>
+
+                    </div>
+
+                    <div class="d-flex gap-3 flex-wrap">
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@Model.Id"
+                               class="btn btn-warning">
+
+                                Edytuj
+
+                            </a>
+                        }
+
+                        <a asp-action="Index"
+                           class="btn btn-outline-light">
+
+                            Powrót
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

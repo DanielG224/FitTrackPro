@@ -1,0 +1,158 @@
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background-color: #1e293b;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar {
+    background-color: #0f172a;
+    min-height: 75px;
+    padding: 10px 15px;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    font-weight: 600;
+}
+
+    .nav-link:hover {
+        color: #22c55e !important;
+    }
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+.hero {
+    height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px;
+}
+
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin: 20px auto;
+        font-size: 1.3rem;
+        color: #d1d5db;
+    }
+
+    .hero .btn {
+        margin-top: 25px;
+        padding: 12px 30px;
+        border-radius: 10px;
+    }
+
+.card {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    color: #212529;
+}
+
+.card-title, .card-text, .card-subtitle {
+    color: #212529;
+}
+
+.btn-primary {
+    background-color: #22c55e;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #16a34a;
+    }
+
+table {
+    color: white !important;
+}
+
+footer {
+    background-color: #0f172a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.auth-row-centered {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.manage-row-aligned {
+    margin: 4rem 0;
+}
+
+.input-vertical-center {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 !important;
+}
+
+.field-validation-valid, .field-validation-error,
+.validation-summary-valid, .validation-summary-errors {
+    display: block;
+    min-height: 20px;
+    font-size: 0.875rem;
+    color: #dc3545;
+}
+
+    .validation-summary-errors ul {
+        list-style: none;
+        padding: 0;
+    }
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        text-align: center;
+        padding-top: 1rem;
+    }
+
+    .navbar-nav {
+        gap: 0.5rem !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-nav {
+        gap: 1.5rem !important;
+    }
+}
