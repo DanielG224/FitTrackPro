@@ -84,3 +84,7 @@ Aby przetestować funkcje administracyjne, użyj poniższych danych logowania:
 
 \- Hasło: Admin123!
 
+## Autorzy
+
+- Daniel Gąsienica
+- Tomasz Filip
